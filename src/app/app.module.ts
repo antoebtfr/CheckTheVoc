@@ -8,7 +8,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

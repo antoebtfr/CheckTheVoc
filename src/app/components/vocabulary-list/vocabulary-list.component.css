@@ -1,0 +1,22 @@
+section{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.table-voc-head{
+    width: 25vw;
+    height: 30px;
+    padding-bottom: 20px !important;
+    border-bottom: solid 2px white; 
+}
+
+.voc-data{
+    text-align: center;
+}
+
+.blank-row{
+    height: 20px !important;
+    background-color: #FFFFFF;
+}
+

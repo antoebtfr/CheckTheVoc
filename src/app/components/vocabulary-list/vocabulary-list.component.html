@@ -1,0 +1,22 @@
+<section>
+    <table id="tableVoc">
+        <thead>
+            <tr>
+                <th class="table-voc-head">Nom</th>
+                <th class="table-voc-head">Livre</th>
+                <th class="table-voc-head">Chapitre</th>
+                <th class="table-voc-head">Langues</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="blank-row"></tr>
+            <tr *ngFor="let voc of testarray">
+                <td class="voc-data">{{voc.name}}</td>
+                <td class="voc-data">{{voc.booksId}}</td>
+                <td class="voc-data">{{voc.chapterId}}</td>
+                <td class="voc-data">{{voc.id}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

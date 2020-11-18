@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { VocabularyRoutingModule } from './vocabulary-routing.module';
 import { VocabularyComponent } from './vocabulary.component';
+import { VocabularyListComponent } from '../../components/vocabulary-list/vocabulary-list.component';
 
 
 @NgModule({
-  declarations: [VocabularyComponent],
+  declarations: [
+    VocabularyComponent,
+    VocabularyListComponent
+  ],
   imports: [
     CommonModule,
-    VocabularyRoutingModule
+    VocabularyRoutingModule,
   ]
 })
 export class VocabularyModule { }

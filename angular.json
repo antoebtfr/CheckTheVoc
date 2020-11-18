@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "CheckTheVoc"
+  "defaultProject": "CheckTheVoc",
+  "cli": {
+    "analytics": "bd126cf1-b7b7-4b0d-b55a-2c914890fed4"
+  }
 }

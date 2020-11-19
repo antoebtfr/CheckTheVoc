@@ -25,24 +25,35 @@ export class VocabularyListComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  @ViewChild('filterSearch') private filterSearch: ElementRef |undefined;
+  public displayedArray: Vocabulary[] = [];
+
+  @ViewChild('filterSearch') private filterSearch: ElementRef | undefined;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.displayedArray = this.testarray;
   }
 
-  ngAfterViewInit(): void{
+  ngAfterViewInit(): void {
 
     console.log(this.filterSearch)
     this.filterByVocavularyName();
   }
 
-  private filterByVocavularyName(): void{
-      this.filterSearch = this.filterSearch?.nativeElement;
-      this.filterSearch?.addEventListener('keypress', (e: any) => {
-        console.log(this.filterSearch.value);
-      })
+  private filterByVocavularyName(): void {
+    let value: string;
+    this.filterSearch = this.filterSearch?.nativeElement;
+
+    this.filterSearch?.addEventListener('keyup', (e: any) => {
+      value = this.filterSearch.value;
+      if (value.length === 0) {
+        this.displayedArray = this.testarray;
+      } else {
+        this.displayedArray = this.testarray.filter(x => x.name === value);
+      }
+      console.log(value);
+    })
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Vocabulary } from 'src/app/shared/class/vocabulary';
 
 @Component({
@@ -6,9 +6,9 @@ import { Vocabulary } from 'src/app/shared/class/vocabulary';
   templateUrl: './vocabulary-list.component.html',
   styleUrls: ['./vocabulary-list.component.css']
 })
-export class VocabularyListComponent implements OnInit {
+export class VocabularyListComponent implements OnInit, AfterViewInit {
 
-  testarray: Vocabulary[] = [
+  public testarray: Vocabulary[] = [
     {
       id: 1,
       name: "Test",
@@ -25,9 +25,24 @@ export class VocabularyListComponent implements OnInit {
     }
   ];
 
+  @ViewChild('filterSearch') private filterSearch: ElementRef |undefined;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void{
+
+    console.log(this.filterSearch)
+    this.filterByVocavularyName();
+  }
+
+  private filterByVocavularyName(): void{
+      this.filterSearch = this.filterSearch?.nativeElement;
+      this.filterSearch?.addEventListener('keypress', (e: any) => {
+        console.log(this.filterSearch.value);
+      })
   }
 
 }

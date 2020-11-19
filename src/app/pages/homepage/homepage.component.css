@@ -4,19 +4,6 @@ section#homepage-section{
     height: 100vh;
 }
 
-h1{
-    color: white;
-    font-size: 6vh;
-    width: 100vw;
-    text-align: center;
-    background-color: #a78080; 
-    height: 15vh;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-}
-
 .homepage-nav-link-container{
     background-image: url(https://wallpaperaccess.com/full/809178.jpg);
     background-size: cover;

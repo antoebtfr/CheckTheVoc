@@ -5,3 +5,16 @@ section{
     height: 100vh;
     overflow: hidden;
 }
+
+h1{
+    color: white;
+    font-size: 6vh;
+    width: 100vw;
+    text-align: center;
+    background-color: #a78080; 
+    height: 15vh;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}

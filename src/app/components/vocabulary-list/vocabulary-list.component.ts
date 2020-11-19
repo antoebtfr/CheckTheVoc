@@ -9,6 +9,8 @@ import { VocabModalService } from 'src/app/shared/service/vocab-modal.service';
 })
 export class VocabularyListComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('filterSearch') private filterSearch: any;
+
   public baseArray: Vocabulary[] = [
     {
       id: 1,
@@ -28,8 +30,6 @@ export class VocabularyListComponent implements OnInit, AfterViewInit {
 
   public displayedArray: Vocabulary[] = [];
 
-  @ViewChild('filterSearch') private filterSearch: any;
-
   constructor(private modal: VocabModalService) { }
 
   ngOnInit(): void {
@@ -37,9 +37,8 @@ export class VocabularyListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
-    console.log(this.filterSearch)
     this.filterByVocavularyName();
+    this.displayedArray = this.baseArray;
   }
 
   private filterByVocavularyName(): void {
@@ -57,10 +56,12 @@ export class VocabularyListComponent implements OnInit, AfterViewInit {
 
   }
 
-  private openModalOnVocClic(): void{
-    
+  public openModalOnVocClic(voc: Vocabulary): void {
+    this.modal.open();
+    console.log(voc);
   }
-  public modalStatus(){
+
+  public modalStatus() {
     return this.modal.getStatus();
   }
 

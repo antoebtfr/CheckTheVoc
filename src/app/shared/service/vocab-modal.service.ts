@@ -9,4 +9,12 @@ export class VocabModalService {
   public getStatus(){
     return this.status;
   }
+
+  public open(){
+    this.status = true;
+  }
+
+  public close(){
+    this.status = false;
+  }
 }

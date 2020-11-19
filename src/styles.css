@@ -57,3 +57,13 @@ a, a:link ,a:visited{
 	text-decoration: none;
 }
 /* END OF RESET CSS */
+
+.cross-to-close::after{
+	content:'X';
+	color: white;
+	font-size: 1.7em;
+	position: absolute;
+	top: 1vh;
+	left: 1vh;
+	cursor: pointer;
+}

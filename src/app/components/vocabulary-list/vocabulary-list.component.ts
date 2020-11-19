@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Vocabulary } from 'src/app/shared/class/vocabulary';
+import { VocabModalService } from 'src/app/shared/service/vocab-modal.service';
 
 @Component({
   selector: 'app-vocabulary-list',
@@ -8,7 +9,7 @@ import { Vocabulary } from 'src/app/shared/class/vocabulary';
 })
 export class VocabularyListComponent implements OnInit, AfterViewInit {
 
-  public testarray: Vocabulary[] = [
+  public baseArray: Vocabulary[] = [
     {
       id: 1,
       name: "Test",
@@ -27,12 +28,12 @@ export class VocabularyListComponent implements OnInit, AfterViewInit {
 
   public displayedArray: Vocabulary[] = [];
 
-  @ViewChild('filterSearch') private filterSearch: ElementRef | undefined;
+  @ViewChild('filterSearch') private filterSearch: any;
 
-  constructor() { }
+  constructor(private modal: VocabModalService) { }
 
   ngOnInit(): void {
-    this.displayedArray = this.testarray;
+    this.displayedArray = this.baseArray;
   }
 
   ngAfterViewInit(): void {
@@ -45,15 +46,22 @@ export class VocabularyListComponent implements OnInit, AfterViewInit {
     let value: string;
     this.filterSearch = this.filterSearch?.nativeElement;
 
-    this.filterSearch?.addEventListener('keyup', (e: any) => {
+    this.filterSearch?.addEventListener('keyup', () => {
       value = this.filterSearch.value;
-      if (value.length === 0) {
-        this.displayedArray = this.testarray;
+      if (value.length <= 0) {
+        this.displayedArray = this.baseArray;
       } else {
-        this.displayedArray = this.testarray.filter(x => x.name === value);
+        this.displayedArray = this.baseArray.filter(x => x.name.toLowerCase().includes(value.toLocaleLowerCase()));
       }
-      console.log(value);
     })
+
+  }
+
+  private openModalOnVocClic(): void{
+    
+  }
+  public modalStatus(){
+    return this.modal.getStatus();
   }
 
 }
